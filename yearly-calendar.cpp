@@ -5,7 +5,6 @@
 using namespace std;
 
 void monthGenerator(int &start_day, int year){
-
     vector<string> monthName(12);
     vector<int> monthDays(12);
     monthName.at(0) = "January";
@@ -26,6 +25,7 @@ void monthGenerator(int &start_day, int year){
         if(k==1){
             if (year%400 == 0 || (year%4 == 0 && year % 100 !=0)){
                 monthDays.at(1) = 29;;
+                cout << "LEAP YEAR!!!\n";
             } else {
                 monthDays.at(1) = 28;
             }
@@ -47,23 +47,27 @@ void monthGenerator(int &start_day, int year){
     }
 
    for (int month_counter = 0; month_counter<12; month_counter++){
-    cout << monthName.at(month_counter) << " " << monthDays.at(month_counter) << endl;
-    /*
+    //cout << monthName.at(month_counter) << " " << monthDays.at(month_counter) << endl;
+    string name_month = monthName.at(month_counter);
+    int num_days = monthDays.at(month_counter);
+    cout << name_month << endl;
+    cout << "-----------------------------------------------------\n";
     cout << "Sun\tMon\tTue\tWed\tThr\tFri\tSat\n";
     for(int i = 0; i < start_day; i++)
         {
                 cout << " \t";
                 
         }
-        for(int j = 1; j <= monthDays.at(j-1); j++)
+        for(int j = 1; j <= num_days; j++)
         {
             if(j+(start_day-1)!=0 && (j+(start_day-1))%7 == 0){
                 cout << endl;
             }
                 cout << j  << "\t";
         }
-        start_day = (monthDays.at(month_counter)+start_day)%7;
-        */
+        start_day = (num_days+start_day)%7;
+        cout << endl;
+        
     }
 }
 
@@ -71,7 +75,6 @@ int main()
 {
 
     int year, start_day;
-    bool leapyear = false;
     cout << "Enter the year for which you wish to generate the calendar: \n";
     cin >> year;
 
