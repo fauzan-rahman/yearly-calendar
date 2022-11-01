@@ -19,9 +19,9 @@ int main( )
      }
      for(int j = 1; j <= n_days; j++)
      {
-           if( j%7 == 0)         // this is not working right...fix!
-               cout << endl;
-
+           if(j+(start_day-1)!=0 && (j+(start_day-1))%7 == 0){
+            cout << endl;
+           }
             cout << j  << "\t";
      }
      cout << endl;
